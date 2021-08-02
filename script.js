@@ -28,7 +28,7 @@ const gameBoard = ((gameBoardSquare) => {
 
             gameBoardSquare.addEventListener('click',() => {
                 console.log("listening");
-                gameBoardSquare.textContent = playerOne.mark;
+                gameBoardSquare.textContent = gameFlow.turnOne();
             });
     });
 
@@ -39,7 +39,6 @@ const gameBoard = ((gameBoardSquare) => {
 
 //Player factory.
 const player = (name, mark) => {
-    let gameBoardSquare = document.getElementById("gameBoardSquare");
          console.table(gameBoard.gameBoardArray);
 
         return { name, mark }
@@ -47,13 +46,15 @@ const player = (name, mark) => {
 
 
 let playerOne = player('jeff', "x");
-const playerTwo = player('jacob', "o");
+let playerTwo = player('jacob', "o");
 
 //game flow
 
 const gameFlow = (() =>{
 
-    
+    function turnOne(){
+        return  playerOne.mark;
+    }
     
     let currentTurn = turnCounter();
 
@@ -63,37 +64,7 @@ const gameFlow = (() =>{
             return i++;
         };
     };
-
-    const turn = () => {
-        if(currentTurn % 2 === 0){
-            playerTwo();
-        }
-        else {
-            playerOne.marker();
-        }
-        }
-
-    if(playerOne === turn){
-        if(gameBoardSquare.textContent === "x" || "o"){
-            return null;
-        }
-        else{
-            gameBoardSquare.textContent = "x";
-            turnCounter();
-        }
+    return {
+        turnOne
     }
-    if(playerTwo === turn){
-        if(gameBoardSquare.textContent === "x" || "o"){
-            return null;
-        }
-        else{
-            gameBoardSquare.textContent = "o";
-            turnCounter();
-        }
-
-    };
-    console.log("being run");
-    return {turn };
-
-    
 })();
