@@ -8,15 +8,16 @@ const gameBoard = ((gameBoardSquare) => {
                 {return i++;}
         };
 
-    let gameBoard = () => {
-        this.id = playerId();
-        return this.id;
+        
+
+    const gameBoard = (id) => {
+        return {id};
     };
 
     let gameBoardArray = [];
 
     for(let i = 0; i <=8; i++){
-    let newGameBoard = gameBoard();
+    let newGameBoard = gameBoard(playerId());
     gameBoardArray.push(newGameBoard);
     };
 
@@ -32,6 +33,7 @@ const gameBoard = ((gameBoardSquare) => {
                 gameBoardSquare.textContent = gameFlow.turn();
             }
             });
+            console.log(p)
     });
 
     return { 
@@ -55,7 +57,6 @@ let playerTwo = player('jacob', "o");
 const gameFlow = (() =>{
 
     let gameSquare = document.querySelectorAll("#gameBoardSquare")
-
     let playerTurn = playerTwo;
 
      function turn(){ 
@@ -77,9 +78,14 @@ const gameFlow = (() =>{
         };
     };
 
+    const winCondition = () => {
+        myLibrary.index
+    }
+
     for(let i = 0; i < 9; i++){
     console.log(currentTurn());}
     return {
         turn
     };
+
 })();
