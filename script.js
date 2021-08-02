@@ -28,7 +28,7 @@ const gameBoard = ((gameBoardSquare) => {
 
             gameBoardSquare.addEventListener('click',() => {
                 console.log("listening");
-                gameBoardSquare.textContent = gameFlow.turnOne();
+                gameBoardSquare.textContent = gameFlow.turn();
             });
     });
 
@@ -52,9 +52,22 @@ let playerTwo = player('jacob', "o");
 
 const gameFlow = (() =>{
 
-    function turnOne(){
-        return  playerOne.mark;
-    }
+    let gameSquare = document.getElementById("gameBoardSquare")
+
+    let playerTurn = playerTwo;
+
+     function turn(){ if(playerTurn === playerTwo){
+       if(gameSquare.textContent === "o"){
+           return null;
+       }
+       else {
+       playerTurn = playerOne;
+        return playerOne.mark;
+    }}
+    else {
+        playerTurn = playerTwo;
+        return  playerTwo.mark;
+    }}
     
     let currentTurn = turnCounter();
 
@@ -64,7 +77,10 @@ const gameFlow = (() =>{
             return i++;
         };
     };
+
+    for(let i = 0; i < 9; i++){
+    console.log(currentTurn());}
     return {
-        turnOne
-    }
+        turn
+    };
 })();

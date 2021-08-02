@@ -4,8 +4,8 @@
     grid-template-columns: 10fr 10fr 10fr;
     grid-template-rows:  repeat(1fr);
     border: solid;
-    width: 25vw;
-    height: 25vw;
+    width: 500px;
+    height: 500px;
 }
 
 #gameBoardSquare{
