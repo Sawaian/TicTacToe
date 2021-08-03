@@ -1,25 +1,12 @@
 
 
 const gameBoard = ((gameBoardSquare) => {
-    
-    function playerId(){   
-        let i = 0;
-            return function()
-                {return i++;}
-        };
 
-        
-
-    const gameBoard = (id) => {
-        return {id};
-    };
-
-    let gameBoardArray = [];
-
-    for(let i = 0; i <=8; i++){
-    let newGameBoard = gameBoard(playerId());
-    gameBoardArray.push(newGameBoard);
-    };
+    let gameBoardArray = [
+        [` `], [` `], [` `], 
+        [` `], [` `], [` `], 
+        [` `], [` `], [` `], 
+    ]
 
     gameBoardArray.forEach(element => {
         let gameBoardObject = document.getElementById("gameBoardSpace");
@@ -31,9 +18,9 @@ const gameBoard = ((gameBoardSquare) => {
                 console.log("listening");
                 if(gameBoardSquare.textContent === ""){
                 gameBoardSquare.textContent = gameFlow.turn();
+                gameBoardArray.indexOf
             }
             });
-            console.log(p)
     });
 
     return { 
@@ -65,6 +52,7 @@ const gameFlow = (() =>{
              return playerOne.mark;
          }
          else if (playerTurn = playerTwo){
+             gameBoard.gameBoardArray.push()
             return playerTwo.mark;
          }
      }
