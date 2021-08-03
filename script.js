@@ -17,10 +17,14 @@ const gameBoard = ((gameBoardSquare) => {
             gameBoardSquare.addEventListener('click',() => {
                 console.log("listening");
                 if(gameBoardSquare.textContent === ""){
-                gameBoardSquare.textContent = gameFlow.turn();
-                gameBoardArray.indexOf
+                    element = gameFlow.turn();
+                gameBoardSquare.textContent = element;
+
+                console.table(gameBoardArray);
+                console.log(element);
             }
             });
+            
     });
 
     return { 
@@ -44,15 +48,15 @@ let playerTwo = player('jacob', "o");
 const gameFlow = (() =>{
 
     let gameSquare = document.querySelectorAll("#gameBoardSquare")
-    let playerTurn = playerTwo;
+    let playerTurn = false;;
 
      function turn(){ 
-         if(playerTurn === playerTwo){
-             playerTurn = playerOne;
+         if(playerTurn === false){
+             playerTurn = true;
              return playerOne.mark;
          }
-         else if (playerTurn = playerTwo){
-             gameBoard.gameBoardArray.push()
+         else if (playerTurn = true){
+             playerTurn = false;
             return playerTwo.mark;
          }
      }
