@@ -8,7 +8,7 @@
     height: 500px;
 }
 
-#gameBoardSquare{
+.square{
     border: solid;
     height: 100px;
     width: 100px;

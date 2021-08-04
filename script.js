@@ -1,7 +1,7 @@
 
+let square = document.querySelectorAll(".square");
 
-const gameBoard = ((gameBoardSquare) => {
-
+const gameBoard = (() => {
     let gameBoardArray = [
         [` `], [` `], [` `], 
         [` `], [` `], [` `], 
@@ -19,22 +19,30 @@ const gameBoard = ((gameBoardSquare) => {
         [2, 4, 6],
     ];
 
+    let checkWin = function(){
+        if(winConditions[0,1,2] === gameBoardArray){
+            console.log("Win");
+        };
+    };
+
+    square.forEach(square => addEventListener('click', () => {
+        console.log("listening");
+    }));
+
     gameBoardArray.forEach(element => {
-        let gameBoardObject = document.getElementById("gameBoardSpace");
-        let gameBoardSquare = document.createElement('div');
-        gameBoardSquare.setAttribute('id', 'gameBoardSquare');
-        gameBoardObject.appendChild(gameBoardSquare);
 
-            gameBoardSquare.addEventListener('click',() => {
-                console.log("listening");
-                if(gameBoardSquare.textContent === ""){
-                    element = gameFlow.turn();
-                gameBoardSquare.textContent = element;
+            // square.addEventListener('click',() => {
+            //     console.log("listening");
+            //     if(square.textContent === ""){
+            //         element = gameFlow.turn();
+            //     square.textContent = element;
 
-                console.table(gameBoardArray);
-                console.log(element);
-            }
-            });
+            //     console.table(gameBoardArray);
+            //     console.log(element);
+
+            
+            // }
+            // });
             
     });
 
@@ -85,14 +93,14 @@ const gameFlow = (() =>{
         };
     };
 
-    const winCondition = () => {
-        myLibrary.index
-    }
+
 
     for(let i = 0; i < 9; i++){
     console.log(currentTurn());}
     return {
         turn
     };
+
+  
 
 })();
