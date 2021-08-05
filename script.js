@@ -20,9 +20,16 @@ const gameBoard = (() => {
     ];
 
     let checkWin = function(){
-        if(gameBoardArray[1] == x ){ 
+        if(gameBoardArray[0] && gameBoardArray[1] && gameBoardArray[2] == x ){ 
             console.log("Win");
+        }
+        if(gameBoardArray[3] && gameBoardArray[4] && gameBoardArray[5] == x){
+            console.log("win");
         };
+        if(gameBoardArray[6] && gameBoardArray[7] && gameBoardArray[8] == x){
+            console.log("win");
+        }
+        
     };
 
     let spaceOne = document. getElementById("spaceOne");
@@ -61,7 +68,8 @@ const gameBoard = (() => {
         if(spaceFour.textContent === ""){
         spaceFour.textContent = gameFlow.turn();
         gameBoardArray[3] = spaceFour.textContent;
-        console.log(gameBoardArray[0]);}
+        console.log(gameBoardArray[3]);}
+        checkWin();
     });
 
     spaceFive.addEventListener('click', ()=> {
@@ -155,3 +163,5 @@ const gameFlow = (() =>{
   
 
 })();
+
+//use a for loop to iterate over the child elements of a div. Assign the array objects as [i]. 
