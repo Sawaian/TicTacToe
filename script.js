@@ -2,10 +2,7 @@
 let square = document.querySelectorAll(".square");
 
 const gameBoard = (() => {
-    let gameBoardArray = [
-        [` `], [` `], [` `], 
-        [` `], [` `], [` `], 
-        [` `], [` `], [` `], 
+    let gameBoardArray = [ "", "", "", "", "", "", "", "", ""
     ]
 
     const x =["x"]
@@ -22,8 +19,8 @@ const gameBoard = (() => {
         [2, 4, 6],
     ];
 
-    let checkWin = function(conditions){
-        if(gameBoardArray[0, 1, 2] == x){ 
+    let checkWin = function(){
+        if(gameBoardArray[1] == x ){ 
             console.log("Win");
         };
     };
@@ -50,7 +47,7 @@ const gameBoard = (() => {
         if(spaceTwo.textContent === ""){
         spaceTwo.textContent = gameFlow.turn();
         gameBoardArray[1] = spaceTwo.textContent;
-        console.log(gameBoardArray[1]);}
+        console.log(gameBoardArray);}
     });
 
     spaceThree.addEventListener('click', ()=> {
@@ -64,7 +61,7 @@ const gameBoard = (() => {
         if(spaceFour.textContent === ""){
         spaceFour.textContent = gameFlow.turn();
         gameBoardArray[3] = spaceFour.textContent;
-        console.log(gameBoardArray[3]);}
+        console.log(gameBoardArray[0]);}
     });
 
     spaceFive.addEventListener('click', ()=> {
