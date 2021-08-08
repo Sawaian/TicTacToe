@@ -5,8 +5,8 @@ const gameBoard = (() => {
     let gameBoardArray = [ "", "", "", "", "", "", "", "", ""
     ]
 
-    const x =["x"]
-    const o = ["o"];
+    const x = "x";
+    const o = "o";
 
     const winConditions = [
         [0, 1, 2],
@@ -19,17 +19,14 @@ const gameBoard = (() => {
         [2, 4, 6],
     ];
 
-    let checkWin = function(){
-        if(gameBoardArray[0] && gameBoardArray[1] && gameBoardArray[2] == x ){ 
-            console.log("Win");
-        }
-        if(gameBoardArray[3] && gameBoardArray[4] && gameBoardArray[5] == x){
-            console.log("win");
-        };
-        if(gameBoardArray[6] && gameBoardArray[7] && gameBoardArray[8] == x){
-            console.log("win");
-        }
-        
+
+    let i = 0;
+
+    let checkWin = function(){  
+           if(gameBoardArray[0] === gameBoardArray[1] && gameBoardArray[2] === gameBoardArray[0] && gameBoardArray[0] === x)
+           {console.log("win")}
+           if(gameBoardArray[3] === gameBoardArray[4] && gameBoardArray[5] === gameBoardArray[3] && gameBoardArray[3] === x)
+           {console.log("win")}
     };
 
     let spaceOne = document. getElementById("spaceOne");
@@ -55,6 +52,7 @@ const gameBoard = (() => {
         spaceTwo.textContent = gameFlow.turn();
         gameBoardArray[1] = spaceTwo.textContent;
         console.log(gameBoardArray);}
+        checkWin();
     });
 
     spaceThree.addEventListener('click', ()=> {
@@ -62,6 +60,7 @@ const gameBoard = (() => {
         spaceThree.textContent = gameFlow.turn();
         gameBoardArray[2] = spaceThree.textContent;
         console.log(gameBoardArray[2]);}
+        checkWin();
     });
 
     spaceFour.addEventListener('click', ()=> {
@@ -77,6 +76,7 @@ const gameBoard = (() => {
         spaceFive.textContent = gameFlow.turn();
         gameBoardArray[4] = spaceFive.textContent;
         console.log(gameBoardArray[4]);}
+        checkWin();
     });
 
     spaceSix.addEventListener('click', ()=> {
@@ -84,6 +84,7 @@ const gameBoard = (() => {
         spaceSix.textContent = gameFlow.turn();
         gameBoardArray[5] = spaceSix.textContent;
         console.log(gameBoardArray[5]);}
+        checkWin();
     });
 
     spaceSeven.addEventListener('click', ()=> {
@@ -91,6 +92,7 @@ const gameBoard = (() => {
         spaceSeven.textContent = gameFlow.turn();
         gameBoardArray[6] = spaceSeven.textContent;
         console.log(gameBoardArray[6]);}
+        checkWin();
     });
 
     spaceEight.addEventListener('click', ()=> {
@@ -98,6 +100,7 @@ const gameBoard = (() => {
         spaceEight.textContent = gameFlow.turn();
         gameBoardArray[7] = spaceEight.textContent;
         console.log(gameBoardArray[7]);}
+        checkWin();
     });
 
     spaceNine.addEventListener('click', ()=> {
@@ -105,6 +108,7 @@ const gameBoard = (() => {
         spaceNine.textContent = gameFlow.turn();
         gameBoardArray[8] = spaceNine.textContent;
         console.log(gameBoardArray[8]);}
+        checkWin();
     });
 
     gameBoardArray.forEach(element => {
