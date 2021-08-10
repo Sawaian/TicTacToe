@@ -1,5 +1,6 @@
 
 let square = document.querySelectorAll(".square");
+let input = document.getElementById("nameOne")
 
 const gameBoard = (() => {
     let gameBoardArray = [ "", "", "", "", "", "", "", "", ""
@@ -7,18 +8,6 @@ const gameBoard = (() => {
 
     const x = "x";
     const o = "o";
-
-    const winConditions = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6],
-    ];
-
 
     let i = 0;
 
@@ -127,8 +116,20 @@ const player = (name, mark) => {
         return { name, mark }
         };
 
+function playerOneName(){
+    let input = document.getElementById("nameOne").value
+    return input;
+}
 
-let playerOne = player('jeff', "x");
+    input.addEventListener("keyup", function(event){
+       if (event.keyCode === 13){
+           event.preventDefault();
+           playerName = document.getElementById("nameOne").value;
+       }
+    });
+
+
+let playerOne = player(playerOneName(), "x");
 let playerTwo = player('jacob', "o");
 
 //game flow
@@ -165,21 +166,37 @@ const gameFlow = (() =>{
         let x = gameBoard.x;
         let o = gameBoard.o;
         if(gameBoardArray[0] === gameBoardArray[1] && gameBoardArray[2] === gameBoardArray[0] && gameBoardArray[0] === x)
-        {console.log("win")}
+        {
+            xWin();
+        }
         if(gameBoardArray[3] === gameBoardArray[4] && gameBoardArray[5] === gameBoardArray[3] && gameBoardArray[3] === x)
-        {console.log("win")}
+        {
+            xWin();
+        }
         if(gameBoardArray[6] === gameBoardArray[7] && gameBoardArray[8] === gameBoardArray[6] && gameBoardArray[6] === x)
-        {console.log("win")}
+        {
+            xWin();
+        }
         if(gameBoardArray[0] === gameBoardArray[3] && gameBoardArray[6] === gameBoardArray[0] && gameBoardArray[0] === x)
-        {console.log("win")}
+        {
+            xWin();
+        }
         if(gameBoardArray[1] === gameBoardArray[4] && gameBoardArray[7] === gameBoardArray[1] && gameBoardArray[1] === x)
-        {console.log("win")}
+        {
+            xWin();
+        }
         if(gameBoardArray[2] === gameBoardArray[5] && gameBoardArray[8] === gameBoardArray[2] && gameBoardArray[2] === x)
-        {console.log("win")}
+        {
+            xWin();
+        }
         if(gameBoardArray[0] === gameBoardArray[4] && gameBoardArray[8] === gameBoardArray[0] && gameBoardArray[0] === x)
-        {console.log("win")}
+        {
+            xWin();
+        }
         if(gameBoardArray[2] === gameBoardArray[4] && gameBoardArray[6] === gameBoardArray[2] && gameBoardArray[2] === x)
-        {console.log("win")}
+        {
+            xWin();
+        }
 
         //o win checks
 
@@ -188,21 +205,40 @@ const gameFlow = (() =>{
             oWin();
         }
         if(gameBoardArray[3] === gameBoardArray[4] && gameBoardArray[5] === gameBoardArray[3] && gameBoardArray[3] === o)
-        {console.log("win")}
+        {
+            oWin();
+        }
         if(gameBoardArray[6] === gameBoardArray[7] && gameBoardArray[8] === gameBoardArray[6] && gameBoardArray[6] === o)
-        {console.log("win")}
+        {
+            oWin();
+        }
         if(gameBoardArray[0] === gameBoardArray[3] && gameBoardArray[6] === gameBoardArray[0] && gameBoardArray[0] === o)
-        {console.log("win")}
+        {
+            oWin();
+        }
         if(gameBoardArray[1] === gameBoardArray[4] && gameBoardArray[7] === gameBoardArray[1] && gameBoardArray[1] === o)
-        {console.log("win")}
+        {
+            oWin();
+        }
         if(gameBoardArray[2] === gameBoardArray[5] && gameBoardArray[8] === gameBoardArray[2] && gameBoardArray[2] === o)
-        {console.log("win")}
+        {
+            oWin();
+        }
         if(gameBoardArray[0] === gameBoardArray[4] && gameBoardArray[8] === gameBoardArray[0] && gameBoardArray[0] === o)
-        {console.log("win")}
+        {
+            oWin();
+        }
         if(gameBoardArray[2] === gameBoardArray[4] && gameBoardArray[6] === gameBoardArray[2] && gameBoardArray[2] === o)
-        {console.log("win")}
+        {
+            oWin();
+        }
 
         };
+
+        function xWin(){
+            let score = document.getElementById("score");
+            score.textContent = (`${playerOne.name} is the winner!`);
+        }
 
         function oWin(){
         let score = document.getElementById("score");
