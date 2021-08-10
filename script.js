@@ -202,6 +202,10 @@ const gameFlow = (() =>{
 
         };
 
+        function oWin(){
+            
+        }
+
         return {
             turn,
             checkWin

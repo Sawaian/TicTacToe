@@ -20,8 +20,37 @@
     font-family: sans-serif;
 }
 
-#menu{
+.menu{
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+    grid-template-columns: 100px 200px;
+    grid-template-rows: 50px 50px;
+    width: 400px;
+    height: 150px;
+    margin: auto;
+}
+
+.button{
+    height: 50px;
+    width: 50px;
+    margin: 10px 10px 10px 10px;
+    margin: auto;
+}
+
+#reset{
+    grid-row: 4;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+#nameOne{
+    margin: auto;
+    margin: 10px 10px 10px 10px;
+    text-align: center;
+    grid-column: 1;
+    grid-row: 1;
+
+}
+
+#playerX{
+    margin-left: 20px;
 }
