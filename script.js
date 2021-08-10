@@ -184,7 +184,9 @@ const gameFlow = (() =>{
         //o win checks
 
         if(gameBoardArray[0] === gameBoardArray[1] && gameBoardArray[2] === gameBoardArray[0] && gameBoardArray[0] === o)
-        {console.log("win")}
+        {
+            oWin();
+        }
         if(gameBoardArray[3] === gameBoardArray[4] && gameBoardArray[5] === gameBoardArray[3] && gameBoardArray[3] === o)
         {console.log("win")}
         if(gameBoardArray[6] === gameBoardArray[7] && gameBoardArray[8] === gameBoardArray[6] && gameBoardArray[6] === o)
@@ -203,7 +205,9 @@ const gameFlow = (() =>{
         };
 
         function oWin(){
-            
+        let score = document.getElementById("score");
+        score.textContent = (`${playerOne.name} is the winner!`);
+        
         }
 
         return {
