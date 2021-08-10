@@ -3,18 +3,25 @@
     display: grid;
     grid-template-columns: 10fr 10fr 10fr;
     grid-template-rows:  repeat(1fr);
-    border: solid;
+    border: solid thin;
     width: 500px;
     height: 500px;
+    margin: auto;
 }
 
 .square{
     border: solid;
-    height: 100px;
-    width: 100px;
+    height: 160px;
+    width: 160px;
     margin: auto;
     text-align: center;
     text-justify: auto;
-    font-size: 80px;
+    font-size: 120px;
     font-family: sans-serif;
+}
+
+#menu{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
 }

@@ -22,45 +22,7 @@ const gameBoard = (() => {
 
     let i = 0;
 
-    let checkWin = function(){  
-           if(gameBoardArray[0] === gameBoardArray[1] && gameBoardArray[2] === gameBoardArray[0] && gameBoardArray[0] === x)
-           {console.log("win")}
-           if(gameBoardArray[3] === gameBoardArray[4] && gameBoardArray[5] === gameBoardArray[3] && gameBoardArray[3] === x)
-           {console.log("win")}
-           if(gameBoardArray[6] === gameBoardArray[7] && gameBoardArray[8] === gameBoardArray[6] && gameBoardArray[6] === x)
-           {console.log("win")}
-           if(gameBoardArray[0] === gameBoardArray[3] && gameBoardArray[6] === gameBoardArray[0] && gameBoardArray[0] === x)
-           {console.log("win")}
-           if(gameBoardArray[1] === gameBoardArray[4] && gameBoardArray[7] === gameBoardArray[1] && gameBoardArray[1] === x)
-           {console.log("win")}
-           if(gameBoardArray[2] === gameBoardArray[5] && gameBoardArray[8] === gameBoardArray[2] && gameBoardArray[2] === x)
-           {console.log("win")}
-           if(gameBoardArray[0] === gameBoardArray[4] && gameBoardArray[8] === gameBoardArray[0] && gameBoardArray[0] === x)
-           {console.log("win")}
-           if(gameBoardArray[2] === gameBoardArray[4] && gameBoardArray[6] === gameBoardArray[2] && gameBoardArray[2] === x)
-           {console.log("win")}
-
-           //o win checks
-
-           if(gameBoardArray[0] === gameBoardArray[1] && gameBoardArray[2] === gameBoardArray[0] && gameBoardArray[0] === o)
-           {console.log("win")}
-           if(gameBoardArray[3] === gameBoardArray[4] && gameBoardArray[5] === gameBoardArray[3] && gameBoardArray[3] === o)
-           {console.log("win")}
-           if(gameBoardArray[6] === gameBoardArray[7] && gameBoardArray[8] === gameBoardArray[6] && gameBoardArray[6] === o)
-           {console.log("win")}
-           if(gameBoardArray[0] === gameBoardArray[3] && gameBoardArray[6] === gameBoardArray[0] && gameBoardArray[0] === o)
-           {console.log("win")}
-           if(gameBoardArray[1] === gameBoardArray[4] && gameBoardArray[7] === gameBoardArray[1] && gameBoardArray[1] === o)
-           {console.log("win")}
-           if(gameBoardArray[2] === gameBoardArray[5] && gameBoardArray[8] === gameBoardArray[2] && gameBoardArray[2] === o)
-           {console.log("win")}
-           if(gameBoardArray[0] === gameBoardArray[4] && gameBoardArray[8] === gameBoardArray[0] && gameBoardArray[0] === o)
-           {console.log("win")}
-           if(gameBoardArray[2] === gameBoardArray[4] && gameBoardArray[6] === gameBoardArray[2] && gameBoardArray[2] === o)
-           {console.log("win")}
-
-
-    };
+    
 
     let spaceOne = document. getElementById("spaceOne");
     let spacetwo = document.getElementById("spaceTwo");
@@ -77,7 +39,7 @@ const gameBoard = (() => {
         spaceOne.textContent = gameFlow.turn();
         gameBoardArray[0] = spaceOne.textContent;
         console.log(gameBoardArray[0]);}
-        checkWin();
+        gameFlow.checkWin();
     });
 
     spacetwo.addEventListener('click', ()=> {
@@ -85,7 +47,7 @@ const gameBoard = (() => {
         spaceTwo.textContent = gameFlow.turn();
         gameBoardArray[1] = spaceTwo.textContent;
         console.log(gameBoardArray);}
-        checkWin();
+        gameFlow.checkWin();
     });
 
     spaceThree.addEventListener('click', ()=> {
@@ -93,7 +55,7 @@ const gameBoard = (() => {
         spaceThree.textContent = gameFlow.turn();
         gameBoardArray[2] = spaceThree.textContent;
         console.log(gameBoardArray[2]);}
-        checkWin();
+        gameFlow.checkWin();
     });
 
     spaceFour.addEventListener('click', ()=> {
@@ -101,7 +63,7 @@ const gameBoard = (() => {
         spaceFour.textContent = gameFlow.turn();
         gameBoardArray[3] = spaceFour.textContent;
         console.log(gameBoardArray[3]);}
-        checkWin();
+        gameFlow.checkWin();
     });
 
     spaceFive.addEventListener('click', ()=> {
@@ -109,7 +71,7 @@ const gameBoard = (() => {
         spaceFive.textContent = gameFlow.turn();
         gameBoardArray[4] = spaceFive.textContent;
         console.log(gameBoardArray[4]);}
-        checkWin();
+        gameFlow.checkWin();
     });
 
     spaceSix.addEventListener('click', ()=> {
@@ -117,7 +79,7 @@ const gameBoard = (() => {
         spaceSix.textContent = gameFlow.turn();
         gameBoardArray[5] = spaceSix.textContent;
         console.log(gameBoardArray[5]);}
-        checkWin();
+        gameFlow.checkWin();
     });
 
     spaceSeven.addEventListener('click', ()=> {
@@ -125,7 +87,7 @@ const gameBoard = (() => {
         spaceSeven.textContent = gameFlow.turn();
         gameBoardArray[6] = spaceSeven.textContent;
         console.log(gameBoardArray[6]);}
-        checkWin();
+        gameFlow.checkWin();
     });
 
     spaceEight.addEventListener('click', ()=> {
@@ -133,7 +95,7 @@ const gameBoard = (() => {
         spaceEight.textContent = gameFlow.turn();
         gameBoardArray[7] = spaceEight.textContent;
         console.log(gameBoardArray[7]);}
-        checkWin();
+        gameFlow.checkWin();
     });
 
     spaceNine.addEventListener('click', ()=> {
@@ -141,7 +103,7 @@ const gameBoard = (() => {
         spaceNine.textContent = gameFlow.turn();
         gameBoardArray[8] = spaceNine.textContent;
         console.log(gameBoardArray[8]);}
-        checkWin();
+        gameFlow.checkWin();
     });
 
     gameBoardArray.forEach(element => {
@@ -152,7 +114,9 @@ const gameBoard = (() => {
 
 
     return { 
-        gameBoardArray
+        gameBoardArray,
+        x,
+        o,
      };
 })();
 
@@ -193,11 +157,55 @@ const gameFlow = (() =>{
         };
     };
 
-    return {
-        turn
-    };
+   
 
-  
+
+    let checkWin = function(){  
+        let gameBoardArray = gameBoard.gameBoardArray;
+        let x = gameBoard.x;
+        let o = gameBoard.o;
+        if(gameBoardArray[0] === gameBoardArray[1] && gameBoardArray[2] === gameBoardArray[0] && gameBoardArray[0] === x)
+        {console.log("win")}
+        if(gameBoardArray[3] === gameBoardArray[4] && gameBoardArray[5] === gameBoardArray[3] && gameBoardArray[3] === x)
+        {console.log("win")}
+        if(gameBoardArray[6] === gameBoardArray[7] && gameBoardArray[8] === gameBoardArray[6] && gameBoardArray[6] === x)
+        {console.log("win")}
+        if(gameBoardArray[0] === gameBoardArray[3] && gameBoardArray[6] === gameBoardArray[0] && gameBoardArray[0] === x)
+        {console.log("win")}
+        if(gameBoardArray[1] === gameBoardArray[4] && gameBoardArray[7] === gameBoardArray[1] && gameBoardArray[1] === x)
+        {console.log("win")}
+        if(gameBoardArray[2] === gameBoardArray[5] && gameBoardArray[8] === gameBoardArray[2] && gameBoardArray[2] === x)
+        {console.log("win")}
+        if(gameBoardArray[0] === gameBoardArray[4] && gameBoardArray[8] === gameBoardArray[0] && gameBoardArray[0] === x)
+        {console.log("win")}
+        if(gameBoardArray[2] === gameBoardArray[4] && gameBoardArray[6] === gameBoardArray[2] && gameBoardArray[2] === x)
+        {console.log("win")}
+
+        //o win checks
+
+        if(gameBoardArray[0] === gameBoardArray[1] && gameBoardArray[2] === gameBoardArray[0] && gameBoardArray[0] === o)
+        {console.log("win")}
+        if(gameBoardArray[3] === gameBoardArray[4] && gameBoardArray[5] === gameBoardArray[3] && gameBoardArray[3] === o)
+        {console.log("win")}
+        if(gameBoardArray[6] === gameBoardArray[7] && gameBoardArray[8] === gameBoardArray[6] && gameBoardArray[6] === o)
+        {console.log("win")}
+        if(gameBoardArray[0] === gameBoardArray[3] && gameBoardArray[6] === gameBoardArray[0] && gameBoardArray[0] === o)
+        {console.log("win")}
+        if(gameBoardArray[1] === gameBoardArray[4] && gameBoardArray[7] === gameBoardArray[1] && gameBoardArray[1] === o)
+        {console.log("win")}
+        if(gameBoardArray[2] === gameBoardArray[5] && gameBoardArray[8] === gameBoardArray[2] && gameBoardArray[2] === o)
+        {console.log("win")}
+        if(gameBoardArray[0] === gameBoardArray[4] && gameBoardArray[8] === gameBoardArray[0] && gameBoardArray[0] === o)
+        {console.log("win")}
+        if(gameBoardArray[2] === gameBoardArray[4] && gameBoardArray[6] === gameBoardArray[2] && gameBoardArray[2] === o)
+        {console.log("win")}
+
+        };
+
+        return {
+            turn,
+            checkWin
+        };
 
 })();
 
