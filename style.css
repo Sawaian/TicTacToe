@@ -31,7 +31,7 @@
 
 .menu{
     display: grid;
-    grid-template-columns: 100px 200px;
+    grid-template-columns: 100px 200px 100px;
     grid-template-rows: 50px 50px;
     width: 400px;
     height: 150px;
@@ -40,16 +40,16 @@
 }
 
 .button{
-    height: 50px;
-    width: 50px;
+    height: 30px;
+    width: 75px;
     margin: 10px 10px 10px 10px;
     margin: auto;
 }
 
 #reset{
     grid-row: 4;
-    grid-column-start: 1;
-    grid-column-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 2;
 }
 
 #nameOne{
@@ -82,4 +82,15 @@
     grid-column: 1;
     grid-row: 2;
     font-family: Georgia;
+}
+
+#submitNameOne{
+    grid-column: 3;
+    grid-row: 1;
+
+}
+
+#submitNameTwo{
+    grid-column: 3;
+    grid-row: 2;
 }

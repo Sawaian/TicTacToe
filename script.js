@@ -111,23 +111,28 @@ const gameBoard = (() => {
 
 //Player factory.
 const player = (name, mark) => {
-         console.table(gameBoard.gameBoardArray);
+
+       let nameOne = document.getElementById('nameOne');
+      
+
+
 
         return { name, mark }
         };
 
 function playerOneName(){
-    let input = document.getElementById("nameOne").value
-    return input;
-}
+    let nameOne = document.getElementById("nameOne").value
+    let inputOne = document.getElementById("nameOne");
 
-    input.addEventListener("keyup", function(event){
-       if (event.keyCode === 13){
-           event.preventDefault();
-           playerName = document.getElementById("nameOne").value;
-       }
+    inputOne.addEventListener('keyup', function(event) {
+        if (event.code === 'Enter')
+        {
+            event.preventDefault();
+            inputOne.submit();
+        }
     });
-
+    return nameOne;
+}
 
 let playerOne = player(playerOneName(), "x");
 let playerTwo = player('jacob', "o");
