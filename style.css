@@ -29,15 +29,17 @@
     font-family: sans-serif;
 }
 
-.menu{
+
+#formOne{
     display: grid;
-    grid-template-columns: 100px 200px 100px;
+    grid-template-columns: 100px 200px 100px 100px;
     grid-template-rows: 50px 50px;
     width: 400px;
     height: 150px;
     margin: auto;
     margin-top: 40px;
 }
+
 
 .button{
     height: 30px;
@@ -52,45 +54,23 @@
     grid-column-end: 2;
 }
 
+#labelOne{
+    grid-column:1;
+    grid-row:1;
+    text-align: center;
+    margin-top: 15px;
+}
+
 #nameOne{
     margin: auto;
     margin: 10px 10px 10px 10px;
     text-align: center;
     grid-column: 2;
     grid-row: 1;
-
 }
 
-#nameTwo{
-    margin: auto;
-    margin: 10px 10px 10px 10px;
-    text-align: center;
-    grid-column: 2;
-    grid-row: 2;
-
-}
-
-#playerX{
-    margin-left: 20px;
-    grid-column: 1;
-    grid-row: 1;
-    font-family: Georgia;
-}
-
-#playerO{
-    margin-left: 20px;
-    grid-column: 1;
-    grid-row: 2;
-    font-family: Georgia;
-}
-
-#submitNameOne{
+#saveOne{
     grid-column: 3;
     grid-row: 1;
-
 }
 
-#submitNameTwo{
-    grid-column: 3;
-    grid-row: 2;
-}

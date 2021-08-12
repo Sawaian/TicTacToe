@@ -1,6 +1,8 @@
 
 let square = document.querySelectorAll(".square");
 let input = document.getElementById("nameOne")
+let submitNameOne = document.getElementById("submitNameOne");
+let submitNameTwo = document.getElementById("submitNameTwo");
 
 const gameBoard = (() => {
     let gameBoardArray = [ "", "", "", "", "", "", "", "", ""
@@ -112,30 +114,24 @@ const gameBoard = (() => {
 //Player factory.
 const player = (name, mark) => {
 
-       let nameOne = document.getElementById('nameOne');
-      
 
-
-
-        return { name, mark }
+        return { 
+            name,
+            mark,
+            }
         };
 
-function playerOneName(){
-    let nameOne = document.getElementById("nameOne").value
-    let inputOne = document.getElementById("nameOne");
 
-    inputOne.addEventListener('keyup', function(event) {
-        if (event.code === 'Enter')
-        {
-            event.preventDefault();
-            inputOne.submit();
-        }
-    });
-    return nameOne;
-}
 
 let playerOne = player(playerOneName(), "x");
 let playerTwo = player('jacob', "o");
+
+
+function playerOneName(){
+    let nameOne = document.getElementById("nameOne").value
+
+    return nameOne;
+}
 
 //game flow
 
@@ -247,7 +243,7 @@ const gameFlow = (() =>{
 
         function oWin(){
         let score = document.getElementById("score");
-        score.textContent = (`${playerOne.name} is the winner!`);
+        score.textContent = (`${playerTwo.name} is the winner!`);
         
         }
 
