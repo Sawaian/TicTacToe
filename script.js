@@ -250,12 +250,16 @@ const gameFlow = (() =>{
         gameBoard.gameStart = false;
         
         }
+
+       
         
 
         let resetBtn = document.getElementById('reset');
         resetBtn.addEventListener("click", ()=>{
-            gameBoard.gameBoardArray = [ "", "", "", "", "", "", "", "", ""
-        ]
+           
+            for(let i = 0; i < gameBoard.gameBoardArray.length; i++){
+                gameBoard.gameBoardArray[i] = "";
+            }
             console.log(gameBoard.gameBoardArray);
             square.forEach(element =>{
                 element.textContent = "";
