@@ -5,15 +5,15 @@ let submitNameOne = document.getElementById("submitNameOne");
 let submitNameTwo = document.getElementById("submitNameTwo");
 
 const gameBoard = (() => {
+
     let gameBoardArray = [ "", "", "", "", "", "", "", "", ""
     ]
 
     const x = "x";
     const o = "o";
+    let gameStart = true;
 
-    let i = 0;
 
-    
 
     let spaceOne = document. getElementById("spaceOne");
     let spacetwo = document.getElementById("spaceTwo");
@@ -25,7 +25,8 @@ const gameBoard = (() => {
     let spaceEight = document.getElementById("spaceEight");
     let spaceNine = document.getElementById("spaceNine");
 
-    spaceOne.addEventListener('click', ()=> {
+    if(gameStart === true)
+    {spaceOne.addEventListener('click', ()=> {
         if(spaceOne.textContent === ""){
         spaceOne.textContent = gameFlow.turn();
         gameBoardArray[0] = spaceOne.textContent;
@@ -97,17 +98,17 @@ const gameBoard = (() => {
         gameFlow.checkWin();
     });
 
-    gameBoardArray.forEach(element => {
+}
+
 
     
-    });
-    
-
 
     return { 
         gameBoardArray,
         x,
         o,
+        gameStart,
+        square
      };
 })();
 
@@ -239,17 +240,35 @@ const gameFlow = (() =>{
         function xWin(){
             let score = document.getElementById("score");
             score.textContent = (`${playerOne.name} is the winner!`);
+            gameBoard.gameStart = false;
+
         }
 
         function oWin(){
         let score = document.getElementById("score");
         score.textContent = (`${playerTwo.name} is the winner!`);
+        gameBoard.gameStart = false;
         
         }
+        
+
+        let resetBtn = document.getElementById('reset');
+        resetBtn.addEventListener("click", ()=>{
+            gameBoard.gameBoardArray = [ "", "", "", "", "", "", "", "", ""
+        ]
+            console.log(gameBoard.gameBoardArray);
+            square.forEach(element =>{
+                element.textContent = "";
+            });
+
+        });
 
         return {
             turn,
-            checkWin
+            checkWin, 
+            xWin,
+            oWin,
+            resetBtn,
         };
 
 })();
