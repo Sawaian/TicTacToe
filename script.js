@@ -25,83 +25,20 @@ const gameBoard = (() => {
     let spaceEight = document.getElementById("spaceEight");
     let spaceNine = document.getElementById("spaceNine");
 
-    if(gameStart === true)
-    {spaceOne.addEventListener('click', ()=> {
-        if(spaceOne.textContent === ""){
-        spaceOne.textContent = gameFlow.turn();
-        gameBoardArray[0] = spaceOne.textContent;
-        console.log(gameBoardArray[0]);}
-        gameFlow.checkWin();
-    });
-
-    spacetwo.addEventListener('click', ()=> {
-        if(spaceTwo.textContent === ""){
-        spaceTwo.textContent = gameFlow.turn();
-        gameBoardArray[1] = spaceTwo.textContent;
-        console.log(gameBoardArray);}
-        gameFlow.checkWin();
-    });
-
-    spaceThree.addEventListener('click', ()=> {
-        if(spaceThree.textContent === ""){
-        spaceThree.textContent = gameFlow.turn();
-        gameBoardArray[2] = spaceThree.textContent;
-        console.log(gameBoardArray[2]);}
-        gameFlow.checkWin();
-    });
-
-    spaceFour.addEventListener('click', ()=> {
-        if(spaceFour.textContent === ""){
-        spaceFour.textContent = gameFlow.turn();
-        gameBoardArray[3] = spaceFour.textContent;
-        console.log(gameBoardArray[3]);}
-        gameFlow.checkWin();
-    });
-
-    spaceFive.addEventListener('click', ()=> {
-        if(spaceFive.textContent === ""){
-        spaceFive.textContent = gameFlow.turn();
-        gameBoardArray[4] = spaceFive.textContent;
-        console.log(gameBoardArray[4]);}
-        gameFlow.checkWin();
-    });
-
-    spaceSix.addEventListener('click', ()=> {
-        if(spaceSix.textContent === ""){
-        spaceSix.textContent = gameFlow.turn();
-        gameBoardArray[5] = spaceSix.textContent;
-        console.log(gameBoardArray[5]);}
-        gameFlow.checkWin();
-    });
-
-    spaceSeven.addEventListener('click', ()=> {
-        if(spaceSeven.textContent === ""){
-        spaceSeven.textContent = gameFlow.turn();
-        gameBoardArray[6] = spaceSeven.textContent;
-        console.log(gameBoardArray[6]);}
-        gameFlow.checkWin();
-    });
-
-    spaceEight.addEventListener('click', ()=> {
-        if(spaceEight.textContent === ""){
-        spaceEight.textContent = gameFlow.turn();
-        gameBoardArray[7] = spaceEight.textContent;
-        console.log(gameBoardArray[7]);}
-        gameFlow.checkWin();
-    });
-
-    spaceNine.addEventListener('click', ()=> {
-        if(spaceNine.textContent === ""){
-        spaceNine.textContent = gameFlow.turn();
-        gameBoardArray[8] = spaceNine.textContent;
-        console.log(gameBoardArray[8]);}
-        gameFlow.checkWin();
-    });
-
-}
-
-
+    function generateGame(){
+    for(let i = 0; i < square.length; i++){
+        square[i].addEventListener('click', ()=> {
+            if(square[i].textContent === ""){
+                square[i].textContent = gameFlow.turn();
+                gameBoardArray[i] = square[i].textContent;
+                console.log(gameBoardArray[i])
+                console.log(gameBoardArray);
+            }
+                gameFlow.checkWin();
+            });
+    }}
     
+    generateGame();
 
     return { 
         gameBoardArray,
