@@ -90,7 +90,7 @@ const gameFlow = (() =>{
         let o = gameBoard.o;
         if(gameBoardArray[0] === gameBoardArray[1] && gameBoardArray[2] === gameBoardArray[0] && gameBoardArray[0] === x)
         {
-            xWin();
+           xWin();
         }
         if(gameBoardArray[3] === gameBoardArray[4] && gameBoardArray[5] === gameBoardArray[3] && gameBoardArray[3] === x)
         {
@@ -155,14 +155,18 @@ const gameFlow = (() =>{
         {
             oWin();
         }
+        else{
+            tie();
+        }
 
         };
+
+
 
         function xWin(){
             let score = document.getElementById("score");
             score.textContent = (`${playerOne.name} is the winner!`);
             gameEnd();
-            tie();
 
         }
 
@@ -182,8 +186,8 @@ const gameFlow = (() =>{
                             console.log("tie game");
                         }
                     }
-        }
-    }
+                }
+            }
        
         
 
@@ -197,6 +201,8 @@ const gameFlow = (() =>{
             square.forEach(element =>{
                 element.textContent = "";
             });
+
+            playerTurn = false;
 
         });
 
