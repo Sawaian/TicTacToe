@@ -15,7 +15,7 @@ const gameBoard = (() => {
 
     function generateGame(){
     for(let i = 0; i < square.length; i++){
-        square[i].addEventListener('click', true, ()=> {
+        square[i].addEventListener('click', ()=> {
             if(square[i].textContent=== "" ){
                 square[i].textContent = gameFlow.turn();
                 gameBoardArray[i] = square[i].textContent;
@@ -26,19 +26,6 @@ const gameBoard = (() => {
             });
     }}
 
-    function endGame(){
-        for(let i = 0; i < square.length; i++){
-            square[i].removeEventListener('click', true, ()=> {
-            if(square[i].textContent=== "" ){
-                square[i].textContent = gameFlow.turn();
-                gameBoardArray[i] = square[i].textContent;
-                console.log(gameBoardArray[i])
-                console.log(gameBoardArray);    
-        }
-        gameFlow.checkWin();
-    });
-        }
-    }
 
     generateGame();
 
@@ -48,7 +35,6 @@ const gameBoard = (() => {
         gameBoardArray,
         x,
         o,
-        endGame,
         square,
      };
 })();
@@ -79,20 +65,22 @@ function playerOneName(){
 
 const gameFlow = (() =>{
 
-    let playerTurn = false;;
+    let playerTurn = false;
 
      function turn(){ 
          if(playerTurn === false){
              playerTurn = true;
              return playerOne.mark;
          }
-         else if (playerTurn = true){
+         else if (playerTurn === true){
              playerTurn = false;
             return playerTwo.mark;
          }
      }
 
-
+     function gameEnd(){
+        playerTurn = null;
+     }
    
 
 
@@ -173,17 +161,29 @@ const gameFlow = (() =>{
         function xWin(){
             let score = document.getElementById("score");
             score.textContent = (`${playerOne.name} is the winner!`);
-            gameBoard.endGame();
+            gameEnd();
+            tie();
 
         }
 
         function oWin(){
         let score = document.getElementById("score");
         score.textContent = (`${playerTwo.name} is the winner!`);
-        gameBoard.gameStart = false;
-        
+        gameEnd();
         }
 
+
+        function tie(){
+            let tieCount = 0;
+            for(let i = 0; i < gameBoard.gameBoardArray.length; i++){
+                    if(gameBoard.gameBoardArray[i] != "" ){
+                        tieCount++
+                        if(tieCount === 9){
+                            console.log("tie game");
+                        }
+                    }
+        }
+    }
        
         
 
