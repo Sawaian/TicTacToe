@@ -11,24 +11,12 @@ const gameBoard = (() => {
 
     const x = "x";
     const o = "o";
-    let gameStart = true;
 
-
-
-    let spaceOne = document. getElementById("spaceOne");
-    let spacetwo = document.getElementById("spaceTwo");
-    let spaceThree = document. getElementById("spaceThree");
-    let spaceFour = document.getElementById("spaceFour");
-    let spaceFive = document. getElementById("spaceFive");
-    let spaceSix = document.getElementById("spaceSix");
-    let spaceSeven = document. getElementById("spaceSeven");
-    let spaceEight = document.getElementById("spaceEight");
-    let spaceNine = document.getElementById("spaceNine");
 
     function generateGame(){
     for(let i = 0; i < square.length; i++){
-        square[i].addEventListener('click', ()=> {
-            if(square[i].textContent === ""){
+        square[i].addEventListener('click', true, ()=> {
+            if(square[i].textContent=== "" ){
                 square[i].textContent = gameFlow.turn();
                 gameBoardArray[i] = square[i].textContent;
                 console.log(gameBoardArray[i])
@@ -37,15 +25,31 @@ const gameBoard = (() => {
                 gameFlow.checkWin();
             });
     }}
-    
+
+    function endGame(){
+        for(let i = 0; i < square.length; i++){
+            square[i].removeEventListener('click', true, ()=> {
+            if(square[i].textContent=== "" ){
+                square[i].textContent = gameFlow.turn();
+                gameBoardArray[i] = square[i].textContent;
+                console.log(gameBoardArray[i])
+                console.log(gameBoardArray);    
+        }
+        gameFlow.checkWin();
+    });
+        }
+    }
+
     generateGame();
+
+    
 
     return { 
         gameBoardArray,
         x,
         o,
-        gameStart,
-        square
+        endGame,
+        square,
      };
 })();
 
@@ -88,14 +92,6 @@ const gameFlow = (() =>{
          }
      }
 
-    let currentTurn = turnCounter();
-
-    function turnCounter(){
-        let i = 1;
-        return function (){
-            return i++;
-        };
-    };
 
    
 
@@ -177,7 +173,7 @@ const gameFlow = (() =>{
         function xWin(){
             let score = document.getElementById("score");
             score.textContent = (`${playerOne.name} is the winner!`);
-            gameBoard.gameStart = false;
+            gameBoard.endGame();
 
         }
 
