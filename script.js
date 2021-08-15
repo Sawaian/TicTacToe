@@ -66,6 +66,7 @@ function playerOneName(){
 const gameFlow = (() =>{
 
     let playerTurn = false;
+    let gameOver = false;
 
      function turn(){ 
          if(playerTurn === false){
@@ -80,12 +81,14 @@ const gameFlow = (() =>{
 
      function gameEnd(){
         playerTurn = null;
+        gameOver = true;
      }
    
 
 
     let checkWin = function(){  
         let gameBoardArray = gameBoard.gameBoardArray;
+        let score = document.getElementById("score");
         let x = gameBoard.x;
         let o = gameBoard.o;
         if(gameBoardArray[0] === gameBoardArray[1] && gameBoardArray[2] === gameBoardArray[0] && gameBoardArray[0] === x)
@@ -164,16 +167,14 @@ const gameFlow = (() =>{
 
 
         function xWin(){
-            let score = document.getElementById("score");
             score.textContent = (`${playerOne.name} is the winner!`);
             gameEnd();
 
         }
 
         function oWin(){
-        let score = document.getElementById("score");
-        score.textContent = (`${playerTwo.name} is the winner!`);
-        gameEnd();
+            score.textContent = (`${playerTwo.name} is the winner!`);
+            gameEnd();
         }
 
 
@@ -182,8 +183,8 @@ const gameFlow = (() =>{
             for(let i = 0; i < gameBoard.gameBoardArray.length; i++){
                     if(gameBoard.gameBoardArray[i] != "" ){
                         tieCount++
-                        if(tieCount === 9){
-                            console.log("tie game");
+                        if(tieCount === 9 && gameOver === false){
+                            score.textContent = "Tied Game!";
                         }
                     }
                 }
@@ -201,8 +202,9 @@ const gameFlow = (() =>{
             square.forEach(element =>{
                 element.textContent = "";
             });
-
+            score.textContent = "";
             playerTurn = false;
+            gameOver = false;
 
         });
 
