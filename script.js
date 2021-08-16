@@ -56,7 +56,14 @@ let playerTwo = player('jacob', "o");
 
 
 function playerOneName(){
-    let nameOne = document.getElementById("nameOne").value
+    
+    document.getElementById("formOne").addEventListener("submit", function(event){
+        let nameOne = document.getElementById("nameOne").value
+        event.preventDefault();
+        console.log(nameOne);
+        return nameOne
+    
+    });
 
     return nameOne;
 }
@@ -211,9 +218,6 @@ const gameFlow = (() =>{
         return {
             turn,
             checkWin, 
-            xWin,
-            oWin,
-            resetBtn,
         };
 
 })();
