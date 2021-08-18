@@ -40,23 +40,26 @@ const gameBoard = (() => {
 })();
 
 //Player factory.
-const player = (mark) => {
+const player = (name, mark) => {
 
-
-
-    document.getElementById("formOne").addEventListener("submit", function(event){
+     let form =  document.getElementById("formOne");
+     
+        form.addEventListener("submit", function(event){
+         let userOne = document.getElementById("nameOne").value;
+         console.log(userOne);
         event.preventDefault();
+        return userOne;
     
     });
-        function getNameOne(){
-            let userOne = document.getElementById("nameOne").value;
-            return userOne;
-             }
+        // function getNameOne(){
+        //     userOne = document.getElementById("nameOne").value;
+        //     return userOne;
+        //      }
 
         return { 
-            name,
             mark,
-            getNameOne,
+            // getNameOne,
+            form,
             };
         };
 
@@ -174,7 +177,7 @@ const gameFlow = (() =>{
 
 
         function xWin(){
-            score.textContent = (`${playerOne.getNameOne()} is the winner!`);
+            score.textContent = (`${playerOne.userOne} is the winner!`);
             gameEnd();
 
         }
