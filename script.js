@@ -42,31 +42,32 @@ const gameBoard = (() => {
 //Player factory.
 const player = (name, mark) => {
 
+    document.getElementById("formOne").addEventListener("submit", function(event){
+        getUserName();
+        event.preventDefault();
+    
+    });
+
+    let getNameOne = () => {
+        let userOne = document.getElementById("nameOne").value;
+        return userOne;
+    }
+
 
         return { 
             name,
             mark,
-            }
+            getNameOne,
+            };
         };
 
 
 
-let playerOne = player(playerOneName(), "x");
+let userName = player.getNameOne();
+
+let playerOne = player(userName(), "x");
 let playerTwo = player('jacob', "o");
 
-
-function playerOneName(){
-    
-    document.getElementById("formOne").addEventListener("submit", function(event){
-        let nameOne = document.getElementById("nameOne").value
-        event.preventDefault();
-        console.log(nameOne);
-        return nameOne
-    
-    });
-
-    return nameOne;
-}
 
 //game flow
 
