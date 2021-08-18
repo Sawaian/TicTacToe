@@ -40,19 +40,18 @@ const gameBoard = (() => {
 })();
 
 //Player factory.
-const player = (name, mark) => {
+const player = (mark) => {
+
+
 
     document.getElementById("formOne").addEventListener("submit", function(event){
-        getUserName();
         event.preventDefault();
     
     });
-
-    let getNameOne = () => {
-        let userOne = document.getElementById("nameOne").value;
-        return userOne;
-    }
-
+        function getNameOne(){
+            let userOne = document.getElementById("nameOne").value;
+            return userOne;
+             }
 
         return { 
             name,
@@ -63,10 +62,10 @@ const player = (name, mark) => {
 
 
 
-let userName = player.getNameOne();
 
-let playerOne = player(userName(), "x");
-let playerTwo = player('jacob', "o");
+let playerOne = player("x");
+let playerTwo = player("o");
+
 
 
 //game flow
@@ -175,7 +174,7 @@ const gameFlow = (() =>{
 
 
         function xWin(){
-            score.textContent = (`${playerOne.name} is the winner!`);
+            score.textContent = (`${playerOne.getNameOne()} is the winner!`);
             gameEnd();
 
         }
