@@ -215,7 +215,11 @@ const gameFlow = (() =>{
 
         let resetBtn = document.getElementById('reset');
         resetBtn.addEventListener("click", ()=>{
+            resetGame();
            
+        });
+
+        function resetGame(){
             for(let i = 0; i < gameBoard.gameBoardArray.length; i++){
                 gameBoard.gameBoardArray[i] = "";
             }
@@ -227,7 +231,7 @@ const gameFlow = (() =>{
             playerTurn = false;
             gameOver = false;
 
-        });
+        };
 
         return {
             turn,
