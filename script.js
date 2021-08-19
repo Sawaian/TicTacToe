@@ -47,8 +47,14 @@ const player = (mark) => {
         return userOne;
          }
 
+         function getNameTwo(){
+            let userTwo = document.getElementById("nameTwo").value;
+            return userTwo;
+             }
+
          return {
              getNameOne,
+             getNameTwo,
              mark,
          }
          
@@ -74,12 +80,12 @@ const gameFlow = (() =>{
     function startGame(){
         let icon = document.getElementById("formOne")
         if(icon.style.display === "none"){
-            icon.style.display ="block";
+            icon.style.display ="grid";
         } else{
             icon.style.display = "none";
         }
         playerTurn = false;
-        resetBtn();
+        resetGame();
     }
 
     document.getElementById('start').addEventListener('click', ()=>{
@@ -191,7 +197,7 @@ const gameFlow = (() =>{
         }
 
         function oWin(){
-            score.textContent = (`${playerTwo.name} is the winner!`);
+            score.textContent = (`${playerTwo.getNameTwo()} is the winner!`);
             gameEnd();
         }
 
