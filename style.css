@@ -29,6 +29,15 @@
     font-family: sans-serif;
 }
 
+#menuBox{
+    display: grid;
+    margin: auto;
+    grid-template-columns: 200px 200px 200px 200px;
+    grid-template-rows: 100px 100px 100px 100px;
+    width: 600px;
+    height: 200px;
+}
+
 
 #formOne{
     display: grid;
@@ -38,25 +47,35 @@
     height: 150px;
     margin: auto;
     margin-top: 40px;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 4;
 }
 
 
 .button{
     height: 30px;
-    width: 75px;
+    width: 30px;
     margin: 10px 10px 10px 10px;
     margin: auto;
 }
 
 #reset{
-    grid-row: 4;
-    grid-column-start: 2;
-    grid-column-end: 2;
+    grid-row: 1;
+    grid-column: 3;
 }
 
 #labelOne{
     grid-column:1;
     grid-row:1;
+    text-align: center;
+    margin-top: 15px;
+}
+
+#labelTwo{
+    grid-column:1;
+    grid-row:2;
     text-align: center;
     margin-top: 15px;
 }
@@ -68,6 +87,15 @@
     grid-column: 2;
     grid-row: 1;
 }
+
+#nameTwo{
+    margin: auto;
+    margin: 10px 10px 10px 10px;
+    text-align: center;
+    grid-column: 2;
+    grid-row: 2;
+}
+
 
 #saveOne{
     grid-column: 3;

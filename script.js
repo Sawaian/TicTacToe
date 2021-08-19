@@ -40,13 +40,19 @@ const gameBoard = (() => {
 })();
 
 //Player factory.
-const player = ((mark) => {
-        let userOne = " ";
-        document.getElementById("formOne").addEventListener("submit", function(event){
-            playerOne.nameOne = document.getElementById("nameOne").value;
-         event.preventDefault();
+const player = (mark) => {
+
+    function getNameOne(){
+        let userOne = document.getElementById("nameOne").value;
+        return userOne;
+         }
+
+         return {
+             getNameOne,
+             mark,
+         }
          
-        });
+        };
           
 
         //  console.log(userOne);
@@ -55,40 +61,33 @@ const player = ((mark) => {
 
 
 
-        // function getNameOne(){
-        //     userOne = document.getElementById("nameOne").value;
-        //     return userOne;
-        //      }
-
-        return { 
-            mark,
-            // getNameOne,
-            get nameOne(){
-                return `${playerOne.userOne}`
-            },
-
-            set nameOne(value){
-                return userOne;
-            }
-            };
-        });
+       
 
 let playerOne = player("x");
 let playerTwo = player("o");
 
 
-objStuff = {
-    get face(){
-
-    }
-}
 //game flow
 
 const gameFlow = (() =>{
 
 
-    let playerTurn = false;
+    let playerTurn = null;
     let gameOver = false;
+
+    function startGame(){
+        let icon = document.getElementById("formOne")
+        if(icon.style.display === "none"){
+            icon.style.display ="block";
+        } else{
+            icon.style.display = "none";
+        }
+        playerTurn = false;
+    }
+
+    document.getElementById('start').addEventListener('click', ()=>{
+        startGame();
+    })
 
      function turn(){ 
          if(playerTurn === false){
@@ -189,7 +188,7 @@ const gameFlow = (() =>{
 
 
         function xWin(){
-            score.textContent = (`${playerOne.nameOne} is the winner!`);
+            score.textContent = (`${playerOne.getNameOne()} is the winner!`);
             gameEnd();
 
         }
