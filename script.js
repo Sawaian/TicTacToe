@@ -59,10 +59,6 @@ const player = (mark) => {
         // event.preventDefault();
         // return userOne;
 
-
-
-       
-
 let playerOne = player("x");
 let playerTwo = player("o");
 
@@ -83,6 +79,7 @@ const gameFlow = (() =>{
             icon.style.display = "none";
         }
         playerTurn = false;
+        resetBtn();
     }
 
     document.getElementById('start').addEventListener('click', ()=>{
